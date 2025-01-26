@@ -26,7 +26,7 @@ def read_csv(fn, header=True, add_label=False):
     Returns:
         df (pd.DataFrame): Pandas DataFrame
     """
-    df = pd.read_csv(fn, sep=';', keep_default_na=False, header=0 if header else None)
+    df = pd.read_csv(fn, sep=',', keep_default_na=False, header=0 if header else None)
     if add_label:
         assert 'label' not in df.columns, 'Label column must not exist if `add_label` is True'
         df = df.assign(label=[add_label] * len(df.index))
